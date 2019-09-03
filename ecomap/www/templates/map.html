@@ -1,0 +1,43 @@
+<aside id="filterProb" class="filter">
+  <div class="filter-controllers animate-show" ng-show="filterTrigger">
+    <p class="heading">
+    Фільтрація за датою:
+    </p>
+    <div class="form-group">
+      <label for="" class="control-label">Показати з:</label>
+      <input type="date" class="form-control" uib-datepicker-popup ng-model="dt.from" is-open="status.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" ng-change="filterMarker()"/>
+    </div>
+    <div class="form-group">
+      <label for="" class="control-label">Показати до:</label>
+      <input type="date" class="form-control" uib-datepicker-popup ng-model="dt.to" is-open="status.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" ng-change="filterMarker()"/>
+    </div>
+    <p class="heading">
+    Тип проблеми:
+    <ul class="problTypes">
+    <li ng-repeat="(type_id, type) in Types" ng-click="toggleType(type_id)">
+      <img ng-src="/image/markers/{{type[0]}}" class="responsive-icon" alt="Marker for problem"/>
+        {{type[1]}}
+        <i class="fa fa-check-circle-o indicator fa-lg" ng-if="selectedType.indexOf(type_id) !== -1"></i>
+        <i class="fa fa-circle-o  indicator fa-lg" ng-if="selectedType.indexOf(type_id) === -1"></i>
+      </li>
+    </ul>
+    <p class="heading">
+    Статус проблеми:
+    </p>
+    <ul class="status">
+      <li ng-repeat="(status, status_descr) in Status" ng-click="toggleStatus(status)">
+        {{status_descr}}
+        <i class="fa fa-check-circle-o  indicator fa-lg" ng-if="selectedStatus.indexOf(status) !== -1"></i>
+        <i class="fa fa-circle-o  indicator fa-lg" ng-if="selectedStatus.indexOf(status) === -1"></i>
+      </li>
+    </ul>
+  </div>
+  <div class="filter-toogle" ng-click="toogleFilter()">
+    фільтрація
+  </div>
+</aside>
+<div class="map-container flex-item-1 flex-container flex-row">
+  <div id="map" class="flex-item-1 flex-container flex-column" >
+  </div>
+</div>
+

@@ -1,0 +1,113 @@
+<div ng-controller="UserProblemTableCtrl">
+  <div class="row">
+    <h3 class="col-md-10">Проблеми {{user.data.surname}} {{user.data.name}}</h3>
+  </div>
+  <div class="row">
+    <div class="col-md-5 col-sm-5 col-xs-5">
+      <form class="form-inline form-search" name="search">
+      <div class="input-group">
+        <input type="text" ng-model="searchNick" 
+               class="form-control"
+               ng-init="showSearch" 
+               ng-change="loadProblems()"
+               maxlength="25"
+               placeholder="Пошук по псевдоніму"/>
+        <div class="input-group-addon"><i class="fa fa-search search"></i></div>
+      </div>
+      </form>
+    </div>
+    <div class="col-lg-offset-5 col-lg-1 col-md-offset-5 col-sm-offset-5 col-sm-2 col-xs-offset-4 col-xs-2">
+        <select ng-model="selectCount.selected" 
+                class="form-control form-problems" 
+                data-ng-options="select_count as select_count for (select_id,select_count) in selectCountObj" 
+                ng-change="loadProblems()">
+        </select>
+    </div>
+  </div>
+  <hr class="problems">
+  <div class="table-responsive" ng-show="problemsLength">
+  <table class="table table-stripped">
+    <thead>
+      <tr>
+        <td ng-click="sortFilter('is_enabled')" 
+            ng-show='showTable == true'><i ng-class="{enabled_true: !filterTable.order_is_enabled, enabled_false: filterTable.order_is_enabled || filterTable.param=='is_enabled'}" class=" fa fa-adjust"></i></td>
+        <td ng-click="sortFilter('last_name')"
+            ng-show='showTable == true'><strong>Користувач</strong>
+          <span ng-show="!filterTable.order_last_name && filterTable.param=='last_name'" class="fa fa-caret-down"></span>
+          <span ng-show="filterTable.order_last_name && filterTable.param=='last_name'" class="fa fa-caret-up"></span>
+        </td>
+        <td ng-click="sortFilter('nickname')"
+            ng-show='showTable == true || nickname == true'><strong>Псевдонім</strong>
+          <span ng-show="!filterTable.order_nickname && filterTable.param=='nickname'" class="fa fa-caret-down"></span>
+          <span ng-show="filterTable.order_nickname && filterTable.param=='nickname'" class="fa fa-caret-up"></span>
+        </td>
+        <td ng-click="sortFilter('title')"><strong>Заголовок</strong>
+          <span ng-show="!filterTable.order_title && filterTable.param=='title'" class="fa fa-caret-down"></span>
+          <span ng-show="filterTable.order_title && filterTable.param=='title'" class="fa fa-caret-up"></span>
+        </td>
+        <td><strong ng-click="sortFilter('name')">Тип проблеми</strong>
+          <span ng-show="!filterTable.order_name && filterTable.param=='name'" class="fa fa-caret-down"></span>
+          <span ng-show="filterTable.order_name && filterTable.param=='name'" class="fa fa-caret-up"></span>
+        </td>
+        <td ng-click="sortFilter('status')"><strong>Статус</strong>
+          <span ng-show="!filterTable.order_status && filterTable.param=='status'" class="fa fa-caret-down"></span>
+          <span ng-show="filterTable.order_status && filterTable.param=='status'" class="fa fa-caret-up"></span>
+        </td>
+        <td ng-click="sortFilter('created_date')"><strong>Дата створення</strong>
+          <span ng-show="!filterTable.order_created_date && filterTable.param=='created_date'" class="fa fa-caret-down"></span>
+          <span ng-show="filterTable.order_created_date && filterTable.param=='created_date'" class="fa fa-caret-up"></span>
+        </td>
+        <td><strong>Детальне інфо</strong> 
+        </td>
+        <td><strong>Редагування</strong></td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="problem in problems">
+        <td ng-show='showTable'>
+          <i class="fa fa-circle circleTrue" ng-show="problem.is_enabled" toggle="tooltip" data-placement="top" title="Проблема підтвержена" tooltip></i>
+          <i class="fa fa-circle circleFalse" ng-show="!problem.is_enabled" toggle="tooltip" data-placement="top" title="Проблема не підтвержена" tooltip></i>
+        </td>
+        <td ng-model="problem.last_name" ng-show='showTable == true'>
+          {{problem.first_name}} {{problem.last_name}}</td>
+        <td ng-model="problem.nickname" ng-show='showTable == true || nickname==true'>
+          {{problem.nickname}}</td>
+        <td ng-model="problem.title" class="problem-title">{{problem.title}}</td>
+        <td ng-model="problem.problem_type_id">
+          {{problem.name}}</td>
+        <td ng-model="problem.status">{{getStatus(problem.status)}}</td>
+        <td>{{problem.date | date : "dd/MM/yyyy "}}</td>
+        <td><a href="" ng-click="triggerDetailModal(problem.id)">переглянути</a></td>
+        <td>
+          <a href="" ng-href="{{linkEditProblem}}" 
+             ng-click="triggerEditModal(problem.id)" class="one_button"
+             ng-show='showTable || user_id==problem.user_id && !problem.is_enabled'>редагувати
+          </a>
+          <a href="" class="del" ng-click="deleteProblem(problem.id, problem.title, problem.user_id)"
+             ng-show='showTable || user_id==problem.user_id && !problem.is_enabled' >
+             <span ng-hide="idProblem==problem.id">видалити</span>
+             <span ng-show="idProblem==problem.id"><img src="/image/swipebox/712_red.gif" class="del_pr_button"></span>
+          </a>
+          <span class="del disable_button" class="one_button"
+             ng-hide='showTable || user_id==problem.user_id && !problem.is_enabled' disable toggle="tooltip" data-placement="top" title="Редагувати можна тільки &#010; до підтвердження модератора &#010;і тільки своі проблеми" tooltip>редагувати &nbsp;
+          </span> 
+          <span class="del disable_button"
+             ng-hide='showTable || user_id==problem.user_id && !problem.is_enabled' disable toggle="tooltip" data-placement="top" title="Видалити можна тільки &#010;до підтвердження модератора &#010;і тільки своі проблеми" tooltip>видалити
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <p ng-hide="problemsLength==0"><strong>Загальна кількість проблем: </strong>
+     <span>{{count}}</span>
+  </p>
+  <h3 class="text-center" ng-hide="problemsLength!=0">Ecomap проблеми відсутні.</h3>
+  <div class="row" ng-hide="problemsLength==0">
+    <div class="col-md-8 col-md-offset-2 col-xs-offset-2 col-xs-8 col-sm-offset-2 col-sm-8 col-lg-offset-4 col-lg-8">
+      <div class="center-block">
+        <uib-pagination ng-change="change(bigCurrentPage)" total-items="bigTotalItems" ng-model="bigCurrentPage" class="pagination" max-size="3" boundary-links="true" rotate="false"></uib-pagination >
+      </div>
+    </div>
+  </div>
+</div>

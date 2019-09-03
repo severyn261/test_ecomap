@@ -1,0 +1,57 @@
+table{
+    margin: 20px;
+}
+
+thead{
+    font-weight:700;
+}
+button{
+    float: right;
+}
+.clear{
+    clear: both;
+}
+
+.del, .def:hover{
+    color: red;
+}
+
+#customEror{
+    font-size:1.5em;
+}
+
+#customEror {
+    font-size: 1.5em;
+}
+.return-profile {
+    position: absolute;
+    right: 20px;
+    top:25px;
+    cursor: pointer;
+}
+
+.selected {
+  background-color: #eee;
+}
+/*buttons*/
+
+.img-responsive{
+    width: 25px;
+}
+.add_logo{
+    margin-top:0px;
+}
+.add_button{
+    margin-top: 24px;
+    margin-right: 5px;
+}
+.add_logo_add{
+    margin-top:0;
+    margin-left:25px;
+}
+.note{
+    color: grey;
+    font-size: 12px;
+    margin-top:10px;
+    margin-bottom:0;
+}
