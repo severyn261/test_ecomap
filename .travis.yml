@@ -17,4 +17,4 @@ before_install:
 
 script:
   - pwd
-  - bash ecomap/bin/ecomap_config_builder.sh
+  - yes | bash ecomap/bin/ecomap_config_builder.sh
