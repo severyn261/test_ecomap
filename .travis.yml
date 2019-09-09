@@ -14,6 +14,7 @@ python:
 #   - sudo apt install libgirepository1.0-dev
 #   - sudo apt-get install libxml2-dev libxslt-dev python-dev -y
 #   - sudo pip install -r requirements.txt
+
 script:
   #- bash ecomap/bin/ecomap_config_builder.sh
   - pwd
