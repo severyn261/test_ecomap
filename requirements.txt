@@ -32,7 +32,7 @@ httplib2==0.8
 idna==2.6
 ipaddress==1.0.17
 itsdangerous==0.24
-Jinja2==2.8
+Jinja2==2.10.1
 jsonschema==2.5.1
 keyring==10.6.0
 keyrings.alt==3.0
