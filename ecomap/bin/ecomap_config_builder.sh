@@ -1,7 +1,7 @@
 # !/usr/bin/env bash
 # Script run config builder 
 
-PRODROOT=~/test_ecomap/ecomap
+PRODROOT=/home/ubuntu/test_ecomap/ecomap
 PYSRCROOT=${PRODROOT}/src/python
 CONFROOT=${PRODROOT}/etc
 PYTHONPATH=$PYSRCROOT
