@@ -1,7 +1,7 @@
 # !/usr/bin/env bash
 # Script run config builder 
 
-PRODROOT=~/build/severyn261/test_ecomap/ecomap
+PRODROOT=~/test_ecomap/ecomap
 PYSRCROOT=${PRODROOT}/src/python
 CONFROOT=${PRODROOT}/etc
 PYTHONPATH=$PYSRCROOT
