@@ -80,16 +80,16 @@ def input_user_data(confvar_dict):
                                           value['default']
             if user_dict[key]:
                 type_value = CONFIG_TYPES[value['type']]
-                if value.get('validate_re') and \
-                   not check_regex(value.get('validate_re'), user_dict[key]):
-                    logging.warning('Invalid data! Use template: \
-                                              example@mail.com.')
-                    continue
-                if not check_regex(type_value['regex'], user_dict[key]):
-                    logging.warning('Invalid data! Wrong type!')
-                    continue
-                user_dict[key] = type_value['eval'] % user_dict[key]
-                break
+#                 if value.get('validate_re') and \
+#                    not check_regex(value.get('validate_re'), user_dict[key]):
+#                     logging.warning('Invalid data! Use template: \
+#                                               example@mail.com.')
+#                     continue
+#                 if not check_regex(type_value['regex'], user_dict[key]):
+#                     logging.warning('Invalid data! Wrong type!')
+#                     continue
+#                 user_dict[key] = type_value['eval'] % user_dict[key]
+#                 break
     logging.debug('Dictionary with user\'s input data was created.')
     return user_dict
 
