@@ -2,7 +2,7 @@
 
 sudo apt-get update
 sudo apt-get install mysql-server -y
-sudo apt-get install mysql-client -y
+sudo apt-get install libmysqlclient-dev -y
 sudo apt-get install -y apache2
 sudo apt-get install libapache2-mod-wsgi -y
 sudo apt-get install python-dev -y
