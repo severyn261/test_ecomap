@@ -10,5 +10,5 @@ sudo apt-get install memcached -y
 sudo apt-get install python-pip -y
 sudo apt-get install libxml2-dev libxslt-dev libssl-dev-y
 sudo apt-get install libxml2-dev libxslt-dev python-dev -y
-sudo apy-get install libgirepository1.0-dev -y
+sudo apt-get install libgirepository1.0-dev -y
 sudo apt-get install libcairo2-dev libjpeg-dev libgif-dev -y
