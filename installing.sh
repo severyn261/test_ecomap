@@ -22,3 +22,4 @@ sudo pip install -r requirements.txt
 
 #sudo bash ~/home/workspace/test_ecomap/install/run.sh
 
+vc
