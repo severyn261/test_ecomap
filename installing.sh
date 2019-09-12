@@ -14,3 +14,6 @@ sudo apt-get install libgirepository1.0-dev -y
 sudo apt-get install libcairo2-dev libjpeg-dev libgif-dev -y
 
 sudo pip install -r requirements.txt
+
+sudo bash ~/home/workspace/test_ecomap/install/run.sh
+
