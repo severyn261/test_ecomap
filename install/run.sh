@@ -3,7 +3,7 @@
 sudo a2enmod wsgi
 sudo a2dissite 000-default
 sudo systemctl reload apache2 || echo 'VSE PROPALO'
-sudo cp ~/home/workspace/test_ecomap/ecomap/etc/_ecomap.apache.conf /etc/apache2/sites-avalible/ecomap.conf
+sudo cp ~/home/workspace/test_ecomap/ecomap/etc/_ecomap.apache.conf /etc/apache2/sites-availible/ecomap.conf
 sudo a2ensite ecomap
 sudo systemctl reload apache2 || echo 'VSE PROPALOOO'
 
