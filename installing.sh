@@ -21,3 +21,4 @@ sudo apt-get install libsasl2-dev -y && echo 'success' && sleep 3s;
 sudo pip install -r requirements.txt
 
 #sudo bash ~/home/workspace/test_ecomap/install/run.sh
+echo "Done"
