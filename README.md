@@ -96,9 +96,9 @@ Website's url - <a href="http://ecomap.org">ecomap.org</a></p>
     init_connect=‘SET collation_connection = utf8_unicode_ci’
     character-set-server = utf8
     collation-server = utf8_unicode_ci
-    
     [client]
-    default-character-set = utf8</pre>
+    default-character-set = utf8
+    </pre>
     </li>
     <li>Go to 'path/to/repo/ecomap/DB/ecomap/' directory</li>
     <li>Run mysql shell: <code>mysql -u -p</code></li>
@@ -150,7 +150,7 @@ Website's url - <a href="http://ecomap.org">ecomap.org</a></p>
 <h2> ENVIRONMENT VARIABLES </h2>
 <p>insert to bashrc</p>
 <ul>
-<li>export PRODROOT=${PRODROOT:-/home/user/project/EcoMap/ecomap}</li>
+<li>export PRODROOT=${PRODROOT:-/home/ubuntu/home/workspace/test_ecomap/ecomap}</li>
 <li>export PYSRCROOT=${PYSRCROOT:-${PRODROOT}/src/python}</li>
 <li>export CONFROOT=${CONFROOT:-${PRODROOT}/etc}</li>
 <li>export PYTHONPATH=${PRODROOT}/src/python</li>
