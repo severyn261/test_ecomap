@@ -24,6 +24,8 @@ sudo apt-get install -y mysql-server \
             libsasl2-dev
 
 sudo pip install -r /home/ubuntu/home/workspace/test_ecomap/requirements.txt
+
+sleep 10s
 sudo a2dissite 000-default
 sudo systemctl reload apache2
 sed -i "s/ecomapIP/$(hostname -I)/g" /home/ubuntu/home/workspace/test_ecomap/ecomap/etc/_ecomap.apache.conf
