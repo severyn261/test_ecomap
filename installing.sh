@@ -23,8 +23,10 @@ sudo apt-get install -y mysql-server \
             libmemcachedutil2 \
             libsasl2-dev
 
-echo '================ SUCCSSESFULL =================='
-
 sudo pip install -r /home/ubuntu/home/workspace/test_ecomap/requirements.txt
-
-echo "Done"
+sudo a2dissite 000-default
+sudo systemctl reload apache2
+sed -i "s/ecomapIP/$(hostname -I)/g" /home/ubuntu/home/workspace/test_ecomap/ecomap/etc/_ecomap.apache.conf
+sudo cp /home/ubuntu/home/workspace/test_ecomap/ecomap/etc/_ecomap.apache.conf /etc/apache2/sites-avalible/ecomap.conf
+sudo a2ensite ecomap
+sudo systemctl reload apache2
