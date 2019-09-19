@@ -28,7 +28,7 @@ sudo pip install -r /home/ubuntu/home/workspace/test_ecomap/requirements.txt
 sleep 10s
 sudo a2dissite 000-default
 sudo systemctl reload apache2
-sed -i "s/ecomapIP/$(hostname -I)/g" /home/ubuntu/home/workspace/test_ecomap/ecomap/etc/_ecomap.apache.conf
-sudo cp /home/ubuntu/home/workspace/test_ecomap/ecomap/etc/_ecomap.apache.conf /etc/apache2/sites-avalible/ecomap.conf
+sudo sed -i "s/ecomapIP/$(hostname -I)/g" /home/ubuntu/home/workspace/test_ecomap/ecomap/etc/_ecomap.apache.conf
+sudo cp /home/ubuntu/home/workspace/test_ecomap/ecomap/etc/_ecomap.apache.conf /etc/apache2/sites-available/ecomap.conf
 sudo a2ensite ecomap
 sudo systemctl reload apache2
