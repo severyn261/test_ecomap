@@ -2,17 +2,7 @@ language: python
 python:
   - 2.7.15
 
-before_install:
-  - sudo apt-get update
-  - sudo apt-get install mysql-server -y
-  - sudo apt-get install libmysqlclient-dev -y
-  - sudo apt-get install -y apache2
-  - sudo apt-get install libapache2-mod-wsgi -y 
-  - sudo apt-get install libapache2-mod-wsgi python-dev -y 
-  - sudo apt-get install memcached -y
-  - sudo apt-get install python-pip -y
-  - sudo apt install libgirepository1.0-dev
-  - sudo apt-get install libxml2-dev libxslt-dev python-dev -y
+install:
   - sudo pip install -r requirements.txt
 
 script: 
