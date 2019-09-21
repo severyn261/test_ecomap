@@ -5,10 +5,10 @@ python:
 before_install:
   - sudo apt-get install -y zip
 
-install:
+# install:
 #   - sudo pip install -r requirements.txt
 
-# script: 
+script: 
 #   - ./ecomap/bin/run_all_unittests.sh
   - touch fileee
   - zip -r test_ecomap.zip fileee
