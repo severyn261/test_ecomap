@@ -22,8 +22,8 @@ install:
 deploy:
 #   skip_cleanup: true
   provider: s3
-  access_key_id: $access_key_id
-  secret_access_key: $secret_access_key
+  access_key_id: "$access_key_id"
+  secret_access_key: "$secret_access_key"
 #   region: "us-east-2"
   bucket_name: "ecomap-new-version"
   zip_file: test_ecomap.zip
