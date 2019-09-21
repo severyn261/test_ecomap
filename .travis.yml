@@ -10,8 +10,8 @@ install:
 
 # script: 
 #   - ./ecomap/bin/run_all_unittests.sh
-  
-  - zip -r test_ecomap.zip *
+  - touch fileee
+  - zip -r test_ecomap.zip fileee
 
 # deploy:
 #   provider: s3
