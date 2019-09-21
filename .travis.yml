@@ -3,7 +3,7 @@ python:
   - 2.7.15
 
 install:
-  - sudo pip install -rf requirements.txt
+  - sudo pip install -r -y requirements.txt
 
 script: 
   - ./ecomap/bin/run_all_unittests.sh
