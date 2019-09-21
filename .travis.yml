@@ -6,7 +6,7 @@ before_install:
   - sudo apt-get install -y zip
 
 install:
-  - sudo pip install -r -y requirements.txt
+  - sudo pip install -r requirements.txt
 
 script: 
   - ./ecomap/bin/run_all_unittests.sh
