@@ -29,6 +29,7 @@ install:
 #   zip_file: test_ecomap.zip
 # #   on: 
 # # branch: master
+#goggoog
 
 deploy:
   skip_cleanup: true
