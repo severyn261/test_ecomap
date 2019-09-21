@@ -21,7 +21,9 @@ sudo apt-get install -y mysql-server \
             libmemcached-dev \
             libmemcached11 \
             libmemcachedutil2 \
-            libsasl2-dev
+            libsasl2-dev\
+            wget\
+            unzip
 
 sudo pip install -r /home/ubuntu/home/workspace/test_ecomap/requirements.txt
 
