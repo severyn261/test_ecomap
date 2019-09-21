@@ -43,4 +43,4 @@ deploy:
   #local_dir: eb
   zip_file: test_ecomap.zip
   on:
-branch: master
+    branch: master
