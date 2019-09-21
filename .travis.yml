@@ -2,8 +2,25 @@ language: python
 python:
   - 2.7.15
 
+before_install:
+  - sudo apt-get install -y zip
+
 install:
   - sudo pip install -r -y requirements.txt
 
 script: 
   - ./ecomap/bin/run_all_unittests.sh
+  
+  - zip -r test_ecomap.zip *
+
+deploy:
+  skip_cleanup: true
+  provider: s3
+  access_key_id: $access_key_id
+  secret_access_key:
+    secure: "$secret_access_key"
+  region: "us-east-2"
+  bucket_name: "ecomap-new-version"
+  zip_file: test_ecomap.zip
+  on: 
+branch: master
