@@ -24,9 +24,11 @@ sudo apt-get install -y mysql-server \
             libsasl2-dev\
             wget\
             unzip
-
+sudo echo "Packages installed" > /home/ubuntu/README.TXT
 sudo pip install -r /home/ubuntu/home/workspace/test_ecomap/requirements.txt
-
+sudo echo "pip packages installed" >> /home/ubuntu/README.TXT
+sudo bash /home/ubuntu/home/workspace/test_ecomap/ecomap/db/ecomap/dump.sh
+sudo echo "db dumped" >> /home/ubuntu/README.TXT
 sleep 10s
 sudo a2dissite 000-default
 sudo systemctl reload apache2
