@@ -117,11 +117,11 @@ resource "aws_elastic_beanstalk_environment" "tfenvtest" {
 #     name      = "InstanceType"
 #     value     = "t2.medium"
 #   }
-  setting {
-    namespace = "aws:autoscaling:launchconfiguration"
-    name      = "ImageId"
-    value     = "ami-05c1fa8df71875112"
-  }
+#   setting {
+#     namespace = "aws:autoscaling:launchconfiguration"
+#     name      = "ImageId"
+#     value     = "ami-05c1fa8df71875112"
+#   }
   tags = {
     "${var.tag-name}" = "${var.tag-value}"
   }
