@@ -91,9 +91,7 @@ resource "aws_elastic_beanstalk_environment" "tfenvtest" {
     namespace = "aws:autoscaling:launchconfiguration"
     name      = "SecurityGroups"
     value     = "sg-0a66a80d3f8b2bbb6"
-  }
-  
-  
+  }  
   setting {
     namespace = "aws:autoscaling:launchconfiguration"
     name      = "IamInstanceProfile"
@@ -109,11 +107,11 @@ resource "aws_elastic_beanstalk_environment" "tfenvtest" {
     name      = "ServiceRole"
     value     = "aws-elasticbeanstalk-service-role"
   }
-    setting {
-    namespace = "aws:elasticbeanstalk:environment"
-    name      = "LoadBalancerType"
-    value     = "application"
-  }
+#     setting {
+#     namespace = "aws:elasticbeanstalk:environment"
+#     name      = "LoadBalancerType"
+#     value     = "application"
+#   }
 #   setting {
 #     namespace = "aws:autoscaling:launchconfiguration"
 #     name      = "InstanceType"
