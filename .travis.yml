@@ -18,9 +18,9 @@ script:
   - echo $TRAVIS_BUILD_NUMBER
   - export AWS_ACCESS_KEY_ID=$access_key_id
   - export AWS_SECRET_ACCESS_KEY="$secret_access_key"
-#   - terraform init
-#   - terraform plan
-#   - terraform apply -auto-approve
+  - terraform init
+  - terraform plan
+  - terraform apply -auto-approve
   
 deploy:
   skip_cleanup: true
