@@ -17,9 +17,10 @@ script:
   - zip -r test_ecomap.zip *
   - export AWS_ACCESS_KEY_ID="secret"
   - export AWS_SECRET_ACCESS_KEY="secret"
-  - pwd
-  - echo $AWS_ACCESS_KEY_ID
-
+  - terraform init
+  - terraform plan
+  - terraform apply -auto-approve
+  
 # deploy:
 #   provider: s3
 #   access_key_id: "YOUR AWS ACCESS KEY"
