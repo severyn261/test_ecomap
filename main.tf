@@ -121,7 +121,7 @@ resource "aws_elastic_beanstalk_environment" "tfenvtest" {
     command = "export APP_NAME=${aws_elastic_beanstalk_application.tftest.name}"
   }
   provisioner "local-exec" {
-    command = "export ENVIROMENT_NAME=${aws_elastic_beanstalk_environment.tftest.name}"
+    command = "export ENVIROMENT_NAME=${aws_elastic_beanstalk_environment.tfenvtest.name}"
   }
 }
 
