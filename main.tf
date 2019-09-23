@@ -71,6 +71,9 @@ resource "aws_instance" "Sev_ubuntu" {
 
 resource "aws_elastic_beanstalk_application" "tftest" {
   name = "${var.app_name}"
+  tags = {
+    "${var.tag-name}" = "${var.tag-value}"
+  }
 }
 
 resource "aws_elastic_beanstalk_environment" "tfenvtest" {
