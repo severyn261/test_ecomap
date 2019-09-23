@@ -2,7 +2,7 @@
 #                                   REGION                                     #
 ################################################################################
 provider "aws" {
-  region     = "${var.aws_region}"
+  region = "${var.aws_region}"
 }
 
 
@@ -34,7 +34,7 @@ resource "aws_instance" "Sev_ubuntu" {
   source_dest_check           = false
 
   tags = {
-    Name              = "${var.name_inst}-${count.index+1}"
+    Name              = "${var.name_inst}-${count.index + 1}"
     "${var.tag-name}" = "${var.tag-value}"
   }
 }
@@ -66,3 +66,63 @@ resource "aws_instance" "Sev_ubuntu" {
 #     ita_group = "Lv-428"
 #   }
 # }
+
+
+
+resource "aws_elastic_beanstalk_application" "tftest" {
+  name = "${var.app_name}"
+}
+
+resource "aws_elastic_beanstalk_environment" "tfenvtest" {
+  name                = "ecomap-name"
+  application         = "${aws_elastic_beanstalk_application.tftest.name}"
+  solution_stack_name = "${var.solution_stack_name}"
+
+  setting {
+    namespace = "aws:ec2:vpc"
+    name      = "VPCId"
+    value     = "${var.vpc_id}"
+  }
+
+  setting {
+    namespace = "aws:ec2:vpc"
+    name      = "Subnets"
+    value     = "${var.subnet_id}"
+  }
+  setting {
+    namespace = "aws:autoscaling:launchconfiguration"
+    name      = "IamInstanceProfile"
+    value     = "aws-elasticbeanstalk-ec2-role"
+  }
+  setting {
+    namespace = "aws:elasticbeanstalk:environment"
+    name      = "ServiceRole"
+    value     = "aws-elasticbeanstalk-service-role"
+  }
+  setting {
+    namespace = "aws:autoscaling:launchconfiguration"
+    name      = "EC2KeyName"
+    value     = "sevaws"
+  }
+  setting {
+    namespace = "aws:autoscaling:launchconfiguration"
+    name      = "InstanceType"
+    value     = "t2.medium"
+  }
+  setting {
+    namespace = "aws:autoscaling:launchconfiguration"
+    name      = "ImageId"
+    value     = "ami-05c1fa8df71875112"
+  }
+  tags = {
+    "${var.tag-name}" = "${var.tag-value}"
+  }
+}
+
+
+provisioner "local-exec" {
+  command = "export APP_NAME=${aws_elastic_beanstalk_application.tftest.name}"
+}
+provisioner "local-exec" {
+  command = "export ENVIROMENT_NAME=${aws_elastic_beanstalk_environment.tftest.name}"
+}
