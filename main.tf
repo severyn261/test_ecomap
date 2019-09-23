@@ -39,28 +39,31 @@ provider "aws" {
 ################################################################################
 #                              Security Group                                  #
 # ##############################################################################
-resource "aws_security_group" "Sev_sgubuntu" {
-  name        = "Sev_sdubuntu"
-  description = "Security Group for App"
-  ingress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-  egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-  tags = {
-    Name              = "SevNewSG4app"
-    "${var.tag-name}" = "${var.tag-value}"
-  }
-}
+# resource "aws_security_group" "Sev_sgubuntu" {
+#   name        = "Sev_sdubuntu"
+#   description = "Security Group for App"
+#   ingress {
+#     from_port   = 0
+#     to_port     = 0
+#     protocol    = "-1"
+#     cidr_blocks = ["0.0.0.0/0"]
+#   }
+#   egress {
+#     from_port   = 0
+#     to_port     = 0
+#     protocol    = "-1"
+#     cidr_blocks = ["0.0.0.0/0"]
+#   }
+#   tags = {
+#     Name              = "SevNewSG4app"
+#     "${var.tag-name}" = "${var.tag-value}"
+#   }
+# }
 
 
+################################################################################
+#                                     EBS                                      #
+################################################################################
 resource "aws_elastic_beanstalk_application" "tftest" {
   name = "${var.app_name}"
   tags = {
@@ -84,20 +87,32 @@ resource "aws_elastic_beanstalk_environment" "tfenvtest" {
     name      = "Subnets"
     value     = "${var.subnet_id}"
   }
+    setting {
+    namespace = "aws:autoscaling:launchconfiguration"
+    name      = "SecurityGroups"
+    value     = "sg-0a66a80d3f8b2bbb6"
+  }
+  
+  
   setting {
     namespace = "aws:autoscaling:launchconfiguration"
     name      = "IamInstanceProfile"
     value     = "aws-elasticbeanstalk-ec2-role"
   }
   setting {
+    namespace = "aws:autoscaling:launchconfiguration"
+    name      = "EC2KeyName"
+    value     = "sevaws"
+  }
+    setting {
     namespace = "aws:elasticbeanstalk:environment"
     name      = "ServiceRole"
     value     = "aws-elasticbeanstalk-service-role"
   }
-  setting {
-    namespace = "aws:autoscaling:launchconfiguration"
-    name      = "EC2KeyName"
-    value     = "sevaws"
+    setting {
+    namespace = "aws:elasticbeanstalk:environment"
+    name      = "LoadBalancerType"
+    value     = "application"
   }
 #   setting {
 #     namespace = "aws:autoscaling:launchconfiguration"
