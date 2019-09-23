@@ -24,7 +24,8 @@ sudo sed -i 's/userpass/135790ecomap/g' /home/ubuntu/home/workspace/test_ecomap/
 sudo sed -i 's/dbname/ecomap_db/g' /home/ubuntu/home/workspace/test_ecomap/ecomap/etc/_configvars.conf
 sudo sed -i 's/dbname/ecomap_db/g' /home/ubuntu/home/workspace/test_ecomap/ecomap/etc/db.conf
 sudo sed -i 's/dbname/ecomap_db/g' /home/ubuntu/home/workspace/test_ecomap/ecomap/db/ecomap/dump.sh
-
+cd /home/ubuntu/home/workspace/test_ecomap/
+sudo rm -rf .travis.yml main.tf variables.tf
 sudo echo '================ SUCCSSESFULL  git==================' >>/home/ubuntu/test.txt
 sudo bash /home/ubuntu/home/workspace/test_ecomap/installing.sh
 
