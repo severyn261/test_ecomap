@@ -4,13 +4,21 @@ python:
 
 before_install:
   - sudo apt-get install -y zip
-
+  - sudo apt-get install unzip
+  - wget https://releases.hashicorp.com/terraform/0.12.7/terraform_0.12.7_linux_amd64.zip
+  - unzip terraform_0.12.7_linux_amd64.zip
+  - sudo mv terraform /usr/local/bin/
+  - terraform --version 
 install:
 #   - sudo pip install -r requirements.txt
 
 script: 
 #   - ./ecomap/bin/run_all_unittests.sh
   - zip -r test_ecomap.zip *
+  - export AWS_ACCESS_KEY_ID="secret"
+  - export AWS_SECRET_ACCESS_KEY="secret"
+  - pwd
+  - echo $AWS_ACCESS_KEY_ID
 
 # deploy:
 #   provider: s3
