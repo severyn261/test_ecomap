@@ -28,8 +28,8 @@ deploy:
   secret_access_key:
     secure: "$secret_access_key"
   region: "us-east-2"  
-  app: "ecomap"
-  env: "Ecomap-env"
+  app: "$APP_NAME"
+  env: "$ENVIROMENT_NAME"
   bucket_name: "ecomap-new-version"
   #local_dir: eb
   zip_file: test_ecomap.zip
