@@ -55,7 +55,7 @@ resource "aws_security_group" "Sev_sgubuntu" {
     cidr_blocks = ["0.0.0.0/0"]
   }
   tags = {
-    Name              = "SevNewSG"
+    Name              = "SevNewSG4app"
     "${var.tag-name}" = "${var.tag-value}"
   }
 }
