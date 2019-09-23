@@ -41,32 +41,26 @@ resource "aws_instance" "Sev_ubuntu" {
 ################################################################################
 #                              Security Group                                  #
 # ##############################################################################
-# resource "aws_security_group" "Sev_sgubuntu" {
-#   name        = "Sev_sdubuntu"
-#   description = "New Security Group"
-#   ingress {
-#     from_port   = 80
-#     to_port     = 80
-#     protocol    = "tcp"
-#     cidr_blocks = ["0.0.0.0/0"]
-#   }
-#   ingress {
-#     from_port   = 22
-#     to_port     = 22
-#     protocol    = "tcp"
-#     cidr_blocks = ["0.0.0.0/0"]
-#   }
-#   egress {
-#     from_port   = 0
-#     to_port     = 0
-#     protocol    = "-1"
-#     cidr_blocks = ["0.0.0.0/0"]
-#   }
-#   tags = {
-#     ita_group = "Lv-428"
-#   }
-# }
-
+resource "aws_security_group" "Sev_sgubuntu" {
+  name        = "Sev_sdubuntu"
+  description = "Security Group for App"
+  ingress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  tags = {
+    Name              = "${aws_security_group.Sev_sgubuntu.name}"
+    "${var.tag-name}" = "${var.tag-value}"
+  }
+}
 
 
 resource "aws_elastic_beanstalk_application" "tftest" {
@@ -107,16 +101,16 @@ resource "aws_elastic_beanstalk_environment" "tfenvtest" {
     name      = "EC2KeyName"
     value     = "sevaws"
   }
-  setting {
-    namespace = "aws:autoscaling:launchconfiguration"
-    name      = "InstanceType"
-    value     = "t2.medium"
-  }
-  setting {
-    namespace = "aws:autoscaling:launchconfiguration"
-    name      = "ImageId"
-    value     = "ami-05c1fa8df71875112"
-  }
+#   setting {
+#     namespace = "aws:autoscaling:launchconfiguration"
+#     name      = "InstanceType"
+#     value     = "t2.medium"
+#   }
+#   setting {
+#     namespace = "aws:autoscaling:launchconfiguration"
+#     name      = "ImageId"
+#     value     = "ami-05c1fa8df71875112"
+#   }
   tags = {
     "${var.tag-name}" = "${var.tag-value}"
   }
