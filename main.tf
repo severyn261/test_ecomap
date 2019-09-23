@@ -77,7 +77,7 @@ resource "aws_elastic_beanstalk_application" "tftest" {
 }
 
 resource "aws_elastic_beanstalk_environment" "tfenvtest" {
-  name                = "ecomap-name"
+  name                = "ecomap-name-travis"
   application         = "${aws_elastic_beanstalk_application.tftest.name}"
   solution_stack_name = "${var.solution_stack_name}"
 
