@@ -75,5 +75,5 @@ variable "solution_stack_name" {
   default = "64bit Amazon Linux 2018.03 v2.9.2 running Python 3.6"
 }
 variable "app_name" {
-  default = "ecomap-travis"
+  default = "ecomap-travis-TRAVISBUILD"
 }
