@@ -65,14 +65,14 @@ provider "aws" {
 #                                     EBS                                      #
 ################################################################################
 resource "aws_elastic_beanstalk_application" "tftest" {
-  name = "${var.app_name}"
+  name = "${var.app_name}-${TRAVIS_BUILD_NUMBER}"
   tags = {
     "${var.tag-name}" = "${var.tag-value}"
   }
 }
 
 resource "aws_elastic_beanstalk_environment" "tfenvtest" {
-  name                = "ecomap-name-travis"
+  name                = "ecomap-TRAVIS-${TRAVIS_BUILD_NUMBER}"
   application         = "${aws_elastic_beanstalk_application.tftest.name}"
   solution_stack_name = "${var.solution_stack_name}"
 
