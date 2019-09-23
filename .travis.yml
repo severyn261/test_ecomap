@@ -8,9 +8,9 @@ before_install:
   - wget https://releases.hashicorp.com/terraform/0.12.7/terraform_0.12.7_linux_amd64.zip
   - unzip terraform_0.12.7_linux_amd64.zip
   - sudo mv terraform /usr/local/bin/
-  - terraform --version 
+  - sudo rm -rf terraform_0.12.7_linux_amd64.zip
 install:
-#   - sudo pip install -r requirements.txt
+  - sudo pip install -r requirements.txt
 
 script: 
 #   - ./ecomap/bin/run_all_unittests.sh
