@@ -3,12 +3,12 @@ python:
   - 2.7.15
 
 before_install:
-#   - sudo apt-get install -y zip
-#   - sudo apt-get install unzip
-#   - wget https://releases.hashicorp.com/terraform/0.12.7/terraform_0.12.7_linux_amd64.zip
-#   - unzip terraform_0.12.7_linux_amd64.zip
-#   - sudo mv terraform /usr/local/bin/
-#   - sudo rm -rf terraform_0.12.7_linux_amd64.zip
+  - sudo apt-get install -y zip
+  - sudo apt-get install unzip
+  - wget https://releases.hashicorp.com/terraform/0.12.7/terraform_0.12.7_linux_amd64.zip
+  - unzip terraform_0.12.7_linux_amd64.zip
+  - sudo mv terraform /usr/local/bin/
+  - sudo rm -rf terraform_0.12.7_linux_amd64.zip
 install:
   - sudo pip install -r requirements.txt
 
