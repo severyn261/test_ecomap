@@ -75,6 +75,7 @@ resource "aws_elastic_beanstalk_environment" "tfenvtest" {
   name                = "ecomap-TRAVIS-TRAVISBUILD"
   application         = "${aws_elastic_beanstalk_application.tftest.name}"
   solution_stack_name = "${var.solution_stack_name}"
+  user_data              = "${file("testrun.sh")}"
 
   setting {
     namespace = "aws:ec2:vpc"
