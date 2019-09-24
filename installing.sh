@@ -27,9 +27,9 @@ sudo apt-get install -y mysql-server \
 echo "Packages installed" > /home/ubuntu/README.TXT
 sudo pip install -r /home/ubuntu/home/workspace/test_ecomap/requirements.txt
 echo "pip packages installed" >> /home/ubuntu/README.TXT
-sudo bash /home/ubuntu/home/workspace/test_ecomap/ecomap/db/ecomap/dump.sh
+# sudo bash /home/ubuntu/home/workspace/test_ecomap/ecomap/db/ecomap/dump.sh
 # sudo rm /home/ubuntu/home/workspace/test_ecomap/ecomap/db/ecomap/dump.sh
-echo "db dumped" >> /home/ubuntu/README.TXT
+# echo "db dumped" >> /home/ubuntu/README.TXT
 sleep 10s
 sudo a2dissite 000-default
 sudo systemctl reload apache2
