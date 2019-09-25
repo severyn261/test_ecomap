@@ -1,8 +1,38 @@
-<h1>Ecomap project (by Lv-428.DevOps for AWS)</h1>
+<h1 style="color:darkolivegreen">Ecomap project (by Lv-428.DevOps for AWS)</h1>
 <h2>About this project</h2>
-<p>This repository is source code of the small web project, which is named 'EcoMap'. This website allows you to publish information about ecological issues around Ukraine to dynamic map. Officials of the Ministry of Environment use this website to collect info about problems and contact with citizens, who publish info to this website. <br>
-Website's url - <a href="http://ecomap.org">ecomap.org</a></p>
+<p>This repository is source code of the small web project, which is named 'EcoMap'. This website allows you to publish
+    information about ecological issues around Ukraine to dynamic map. Officials of the Ministry of Environment use this
+    website to collect info about problems and contact with citizens, who publish info to this website. <br>
+    Website's url - <a href="http://ecomap.org">ecomap.org</a></p>
 <p>Ecomap Rest Api docimentation <a href="http://lhalam.github.io/EcoMap">lhalam.github.io/EcoMap/</a></p>
+
+<h2 style="color: darkorange">
+    Easy run
+</h2>
+<p>Requirements:</p>
+<ul>
+    <li>
+        Ubuntu 16.04+
+    </li>
+    <li>
+        RAM <span style="color: red;"> 2GB</span> and higher (<span style="color:green;"> 4GB</span> recomended)
+    </li>
+</ul>
+<p>How to run</p>
+<ol>
+    <li>
+        Create bash script install.sh <br>
+        <code>touch install.sh</code> 
+    </li>
+    <br>
+    <li>
+        Insert data from testrun.sh to install.sh <br>
+         Run install.sh <br>
+        <code>sudo bash install.sh</code>
+    </li>
+
+</ol>
+<p style="color:orangered">If this method doesn`t work. Use the following guide</p>
 
 <h2>Install</h2>
 <p>We're assumming that you're using bash & you have to install or clone such packages: </p>
@@ -34,14 +64,14 @@ Website's url - <a href="http://ecomap.org">ecomap.org</a></p>
 <ol>
     <li> Go to <code>'path/to/repo/ecomap/bin/</code> directory</li>
     <li> Run shell script : <code>./ecomap_config_builder.sh</code><br>
-         Default logging level - DEBUG<br>
-         You can run this script with two logging levels:<br>
-         <code>./ecomap_config_builder.sh -v1</code> - logging level DEBUG<br>
-         <code>./ecomap_config_builder.sh -v2</code> - logging level INFO<br>
-         This script will run config builder in your console.
+        Default logging level - DEBUG<br>
+        You can run this script with two logging levels:<br>
+        <code>./ecomap_config_builder.sh -v1</code> - logging level DEBUG<br>
+        <code>./ecomap_config_builder.sh -v2</code> - logging level INFO<br>
+        This script will run config builder in your console.
     </li>
     <li>You will have to type config values, and where it`s possible you can use default one. Example :<br>
-    <pre>
+        <pre>
     <code>[apache_project_path] Path to project for apache config [default:None]: /path/to/project/directory 
     [apache_server_admin] Admin email for apache config [default:admin@ecomap.com]: admin@gmail.com
     [apache_server_alias] Server alias for apache config [default:None]: ecomap.new
@@ -82,7 +112,8 @@ Website's url - <a href="http://ecomap.org">ecomap.org</a></p>
     [rw_db_user] Read / write ecomap database user [default:root]: dog</code>
     </pre>
     </li>
-    <li> After this it will create config files in <code>ecomap/etc/</code> directory and insert in database admin and anononymous with appropriate data.
+    <li> After this it will create config files in <code>ecomap/etc/</code> directory and insert in database admin and
+        anononymous with appropriate data.
     </li>
 </ol>
 
@@ -90,7 +121,7 @@ Website's url - <a href="http://ecomap.org">ecomap.org</a></p>
 <ol>
     <li>Open file /etc/mysql/my.conf with following command: <code>nano /etc/mysql/my.cnf</code></li>
     <li>Add following options to this file: <br>
-    <pre>
+        <pre>
     [mysqld]
     default-character-set = utf8
     init_connect=‘SET collation_connection = utf8_unicode_ci’
@@ -102,11 +133,15 @@ Website's url - <a href="http://ecomap.org">ecomap.org</a></p>
     </li>
     <li>Go to 'path/to/repo/ecomap/DB/ecomap/' directory</li>
     <li>Run mysql shell: <code>mysql -u -p</code></li>
-    <li>Run following command: <code>CREATE DATABASE ecomap_db CHARACTER SET utf8 COLLATE utf8_unicode_ci;</code> - this command will create database if it's not created yet. Put the name you want instead of 'ecomap_db'</li>
-    <li>Run following command: <code>USE ecomap_db;</code> - this command will set the database you've created earilier as current. 
+    <li>Run following command: <code>CREATE DATABASE ecomap_db CHARACTER SET utf8 COLLATE utf8_unicode_ci;</code> - this
+        command will create database if it's not created yet. Put the name you want instead of 'ecomap_db'</li>
+    <li>Run following command: <code>USE ecomap_db;</code> - this command will set the database you've created earilier
+        as current.
         Instead of ecomap_db put the name you've chosen earlier</li>
-    <li>Run following command: <code>SOURCE CREATE_DB.sql;</code> - this command will create all tables for database</li>
-    <li>Run following command: <code>SOURCE INSERT_DATA.sql;</code> - this command will populate all data you need for the beginning of work</li>
+    <li>Run following command: <code>SOURCE CREATE_DB.sql;</code> - this command will create all tables for database
+    </li>
+    <li>Run following command: <code>SOURCE INSERT_DATA.sql;</code> - this command will populate all data you need for
+        the beginning of work</li>
     <li>Now you have working Database!</li>
 </ol>
 <h2>Database scheme</h2>
@@ -115,24 +150,26 @@ Website's url - <a href="http://ecomap.org">ecomap.org</a></p>
 
 <h2>Ecomap application runs on Apache Web Server v2.4</h2>
 <p>
-    This is a short manual, which tells how to configure WSGI-Flask application and Apache server on your server or local        machine.
+    This is a short manual, which tells how to configure WSGI-Flask application and Apache server on your server or
+    local machine.
 </p>
 <ol>
     <li>
         Enable wsgi mod: <br>
-            <code>sudo a2enmod wsgi</code>
+        <code>sudo a2enmod wsgi</code>
     </li>
     <li>
         Edit your hosts file to create server name alias<br>
-            <code>sudo gedit /etc/hosts</code><br>
-        Add this line to th your host file: 
-            <code>127.0.1.2   ecomap.new</code>
+        <code>sudo gedit /etc/hosts</code><br>
+        Add this line to th your host file:
+        <code>127.0.1.2   ecomap.new</code>
     </li>
     <li>
         Run following command: <br>
-            <code>sudo gedit /etc/apache2/sites-available/ecomap.conf</code><br>
+        <code>sudo gedit /etc/apache2/sites-available/ecomap.conf</code><br>
         This command will create file ecomap.conf - this is config file of your site. You can set any name you want!<br>
-        Add content from apache.conf file, which is situated in - <code>ecomap/etc/_ecomap.apache.conf</code> to                             <code>/etc/apache2/sites-available/ecomap.conf</code>.
+        Add content from apache.conf file, which is situated in - <code>ecomap/etc/_ecomap.apache.conf</code> to
+        <code>/etc/apache2/sites-available/ecomap.conf</code>.
     </li>
     <li>
         Enable your site:<br>
@@ -140,24 +177,24 @@ Website's url - <a href="http://ecomap.org">ecomap.org</a></p>
     </li>
     <li>
         Make your own copy of ecomap.wsgi (situated in <code>ecomap/www/ecomap.wsgi</code>).
-        Also read comments in that file, since they are important! This is your main wsgi script which apache will use to run         application. It has already configured for our project structure. You can set your own path to templates folder and          you'll see test site.
+        Also read comments in that file, since they are important! This is your main wsgi script which apache will use
+        to run application. It has already configured for our project structure. You can set your own path to templates
+        folder and you'll see test site.
     </li>
     <li>
-        <code>views.py</code> - this is main flask application file. All backend code will be written there. You can change          everything right now!
+        <code>views.py</code> - this is main flask application file. All backend code will be written there. You can
+        change everything right now!
     </li>
 </ol>
 
 <h2> ENVIRONMENT VARIABLES </h2>
 <p>insert to bashrc</p>
 <ul>
-<li>export PRODROOT=${PRODROOT:-/home/ubuntu/home/workspace/test_ecomap/ecomap}</li>
-<li>export PYSRCROOT=${PYSRCROOT:-${PRODROOT}/src/python}</li>
-<li>export CONFROOT=${CONFROOT:-${PRODROOT}/etc}</li>
-<li>export PYTHONPATH=${PRODROOT}/src/python</li>
-<li>export PYTHON=${PYTHON:-/etc/python}</li>
-<li>export PYTHON_EGG_CACHE=${PYTHON_EGG_CACHE:-/tmp/.python-eggs}</li>
-<li>export STATICROOT=${STATICROOT:-${PRODROOT}/www/}</li>
+    <li>export PRODROOT=${PRODROOT:-/home/ubuntu/home/workspace/test_ecomap/ecomap}</li>
+    <li>export PYSRCROOT=${PYSRCROOT:-${PRODROOT}/src/python}</li>
+    <li>export CONFROOT=${CONFROOT:-${PRODROOT}/etc}</li>
+    <li>export PYTHONPATH=${PRODROOT}/src/python</li>
+    <li>export PYTHON=${PYTHON:-/etc/python}</li>
+    <li>export PYTHON_EGG_CACHE=${PYTHON_EGG_CACHE:-/tmp/.python-eggs}</li>
+    <li>export STATICROOT=${STATICROOT:-${PRODROOT}/www/}</li>
 </ul>
-
-<h1>test</h1>
-
