@@ -1,4 +1,4 @@
-<h1>Ecomap project (by LV-164.UI&LV-173.UI)</h1>
+<h1>Ecomap project (by LV-164.UI&LV-173.UI| AWS: Lv-428.DevOps)</h1>
 <h2>About this project</h2>
 <p>This repository is source code of the small web project, which is named 'EcoMap'. This website allows you to publish information about ecological issues around Ukraine to dynamic map. Officials of the Ministry of Environment use this website to collect info about problems and contact with citizens, who publish info to this website. <br>
 Website's url - <a href="http://ecomap.org">ecomap.org</a></p>
