@@ -1,6 +1,7 @@
 #!/bin/bash
 # sudo apt-get install -y wget unzip
 sudo adduser ecomap
+sudo adduser ubuntu
 mkdir /home/ubuntu/home
 mkdir /home/ubuntu/home/workspace
 # mkdir /home/ubuntu/home/workspace/test_ecomap
