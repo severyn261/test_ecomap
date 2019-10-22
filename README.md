@@ -1,11 +1,5 @@
 <h1 style="color:darkolivegreen">Ecomap project (by Lv-428.DevOps for AWS)</h1>
-<h2>About this project</h2>
-<p>This repository is source code of the small web project, which is named 'EcoMap'. This website allows you to publish
-    information about ecological issues around Ukraine to dynamic map. Officials of the Ministry of Environment use this
-    website to collect info about problems and contact with citizens, who publish info to this website. <br>
-    Website's url - <a href="http://ecomap.org">ecomap.org</a></p>
-<p>Ecomap Rest Api docimentation <a href="http://lhalam.github.io/EcoMap">lhalam.github.io/EcoMap/</a></p>
-
+<p>Method created by Severyn Vashchuk. To use "Easy run" method you need the RDS database. Change endpoint connection in testrun.sh </p>
 <h2 style="color: darkorange">
     Easy run
 </h2>
@@ -33,6 +27,13 @@
 
 </ol>
 <p style="color:orangered">If this method doesn`t work. Use the following guide</p>
+
+<h2>About this project</h2>
+<p>This repository is source code of the small web project, which is named 'EcoMap'. This website allows you to publish
+    information about ecological issues around Ukraine to dynamic map. Officials of the Ministry of Environment use this
+    website to collect info about problems and contact with citizens, who publish info to this website. <br>
+    Website's url - <a href="http://ecomap.org">ecomap.org</a></p>
+<p>Ecomap Rest Api docimentation <a href="http://lhalam.github.io/EcoMap">lhalam.github.io/EcoMap/</a></p>
 
 <h2>Install</h2>
 <p>We're assumming that you're using bash & you have to install or clone such packages: </p>
